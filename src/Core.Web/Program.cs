@@ -15,7 +15,7 @@ namespace Core.Web
                 .UseKestrel()
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseIISIntegration()
-                .UseUrls("http://192.168.1.27:8008")
+                .UseUrls("http://192.168.1.70:80")
                 .UseStartup<Startup>()
                 .Build();
 
