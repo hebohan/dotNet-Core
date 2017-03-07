@@ -5,14 +5,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Dapper" Version="1.50.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0-preview-20170125-04" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.1.10-rc2" />
     <PackageReference Include="MSTest.TestFramework" Version="1.0.8-rc2" />
+    <PackageReference Include="MySql.Data.Core" Version="7.0.4-IR-191" />
+    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="7.0.6-IR31" />
     <PackageReference Include="StackExchange.Redis" Version="1.2.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Core.Cache\Core.Cache.csproj" />
+    <ProjectReference Include="..\Core.Data\Core.Data.csproj" />
+    <ProjectReference Include="..\Core.Model\Core.Model.csproj" />
   </ItemGroup>
 
   <ItemGroup>

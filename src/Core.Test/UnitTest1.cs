@@ -50,5 +50,7 @@ namespace Core.Test
                 List<string> messageList = db.ListRange(ListKeyName, 0, 4).Select(o => (string)o).ToList();
             }
         }
+
+
     }
 }
