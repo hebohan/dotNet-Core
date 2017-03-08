@@ -42,6 +42,5 @@ namespace Core.Test
 
             Console.WriteLine($"Employee was saved in the database with id: {entry.Id}");
         }
-    }
-    }
+    }    
 }

@@ -3,12 +3,16 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using StackExchange.Redis;
 using System.Collections.Generic;
 using System.Linq;
+using Core.Cache;
 
 namespace Core.Test
 {
     [TestClass]
     public class UnitTest1
     {
+
+        private StackExchangeHelper _stackExchangeHelper = new StackExchangeHelper();
+
         public IDatabase db { get; set; }
 
         /// <summary>
@@ -51,6 +55,10 @@ namespace Core.Test
             }
         }
 
-
+        [TestMethod]
+        public void TestMethod2()
+        {
+            var a = _stackExchangeHelper.GetStringKey("StackExchangeHelperTest1");
+        }
     }
 }
