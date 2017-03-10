@@ -1,20 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>    
-    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="1.50.2" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.0.0-preview-20170125-04" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.1.10-rc2" />
     <PackageReference Include="MSTest.TestFramework" Version="1.0.8-rc2" />
     <PackageReference Include="MySql.Data.Core" Version="7.0.4-IR-191" />
-    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="7.0.6-IR31" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="StackExchange.Redis" Version="1.2.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Core.Business\Core.Business.csproj" />
     <ProjectReference Include="..\Core.Cache\Core.Cache.csproj" />
     <ProjectReference Include="..\Core.Data\Core.Data.csproj" />
     <ProjectReference Include="..\Core.Model\Core.Model.csproj" />

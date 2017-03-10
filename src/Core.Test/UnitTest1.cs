@@ -4,6 +4,7 @@ using StackExchange.Redis;
 using System.Collections.Generic;
 using System.Linq;
 using Core.Cache;
+using Core.Business;
 
 namespace Core.Test
 {
@@ -12,6 +13,53 @@ namespace Core.Test
     {
 
         private StackExchangeHelper _stackExchangeHelper = new StackExchangeHelper();
+        private JsonHelper _jsonHelper = new JsonHelper();
+
+        public class Temp
+        {
+            //属性
+            #region  主键ID
+            /// <summary>
+            /// 主键ID
+            /// </summary>
+            public virtual UInt32 ID { get; set; }
+            #endregion
+
+            #region  状态 -1：删除，0：正常
+            /// <summary>
+            /// 状态 -1：删除，0：正常
+            /// </summary>
+            public virtual Int32 State { get; set; }
+            #endregion
+
+            #region  创建时间
+            /// <summary>
+            /// 创建时间
+            /// </summary>
+            public virtual DateTime CreateTime { get; set; }
+            #endregion
+
+            #region  更新时间
+            /// <summary>
+            /// 更新时间
+            /// </summary>
+            public virtual DateTime UpdateTime { get; set; }
+            #endregion
+
+            #region 名称
+            /// <summary>
+            /// 名称
+            /// </summary>
+            public virtual String Name { get; set; }
+            #endregion
+
+            #region 备注
+            /// <summary>
+            /// 备注
+            /// </summary>
+            public virtual String Mark { set; get; }
+            #endregion
+        }
 
         public IDatabase db { get; set; }
 
@@ -59,6 +107,31 @@ namespace Core.Test
         public void TestMethod2()
         {
             var a = _stackExchangeHelper.GetStringKey("StackExchangeHelperTest1");
+        }
+
+        [TestMethod]
+        public void TestMethod3()
+        {
+            var temp = new Temp()
+            {
+                ID = 1,
+                CreateTime = DateTime.Now,
+                UpdateTime = DateTime.Now,
+                State = 1,
+                Mark = "sjiaj"
+            };
+
+            Object obj = new Object();
+
+            var str = _jsonHelper.SerializeObject(temp);
+        }
+
+        [TestMethod]
+        public void TestMethod4()
+        {
+            var str = "{\"ID\":1,\"State\":1,\"CreateTime\":\"2017-03-09T15:01:26.2702134+08:00\",\"UpdateTime\":\"2017-03-09T15:01:26.3152446+08:00\",\"Name\":null,\"Mark\":\"sjiaj\"}";
+
+            var a = _jsonHelper.DeserializeJsonToObject<Temp>(str);
         }
     }
 }
